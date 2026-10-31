@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "permikar",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8099"],
+      "port": 8099
+    },
+    {
+      "name": "rbauto75",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8098", "--directory", "C:\\Users\\ME\\Desktop\\site-rbauto75"],
+      "port": 8098
+    }
+  ]
+}

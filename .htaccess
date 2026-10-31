@@ -1,0 +1,120 @@
+# ============================================================================
+#  Permikar — configuration Apache
+#  Performance, sécurité, URLs propres et redirections depuis l'ancien site.
+# ============================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+AddDefaultCharset UTF-8
+
+# ----------------------------------------------------------------------------
+#  1. HTTPS et domaine canonique (sans www)
+# ----------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://permikar.fr%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^www\.permikar\.fr$ [NC]
+  RewriteRule ^ https://permikar.fr%{REQUEST_URI} [R=301,L]
+
+  # Le dossier source des gabarits n'est pas servi
+  RewriteRule ^src/ - [F,L]
+
+  # /page  ->  /page/   (évite le contenu dupliqué)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+</IfModule>
+
+# ----------------------------------------------------------------------------
+#  2. Redirections 301 depuis les anciennes URLs WordPress
+#     (indispensables pour conserver le référencement acquis)
+# ----------------------------------------------------------------------------
+# RedirectMatch plutôt que Redirect : la seconde est un préfixe et recollerait
+# la fin de l'URL à la cible (/produit/xyz -> /code-en-ligne/xyz, qui n'existe pas).
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/premier-contact/?$                                              /contact/
+  RedirectMatch 301 ^/reservation-date-dexamen/?$                                     /nos-offres/
+  RedirectMatch 301 ^/reservation-permis/?$                                           /nos-offres/
+  RedirectMatch 301 ^/pack-exclusif-de-100-questions-pour-votre-permis-de-conduire/?$ /contact/
+  RedirectMatch 301 ^/commander-un-forfait(/.*)?$                                     /nos-offres/
+  RedirectMatch 301 ^/produit(/.*)?$                                                  /code-en-ligne/
+  RedirectMatch 301 ^/boutique(/.*)?$                                                 /nos-offres/
+  RedirectMatch 301 ^/financement-flexible-de-votre-permis-avec-permikar/?$           /nos-offres/
+  RedirectMatch 301 ^/auto-ecole-paris/?$                                             /permis-acceleres/
+  RedirectMatch 301 ^/le-permis-accelere-en-france/?$                                 /permis-acceleres/
+  RedirectMatch 301 ^/cours-pratiques-permis-accelere/?$                              /permis-acceleres/
+  RedirectMatch 301 ^/permis-accelere-en-europe/?$                                    /permis-acceleres/
+  RedirectMatch 301 ^/recrutement-moniteur-auto-ecole/?$                              /contact/
+  RedirectMatch 301 ^/pitch-pour-nos-apporteurs-daffaires/?$                          /contact/
+  RedirectMatch 301 ^/nos-actualites/?$                                               /
+  RedirectMatch 301 ^/le-monde-de-permikar/?$                                         /
+  RedirectMatch 301 ^/referente-handicap/?$                                           /mentions-legales/#handicap
+  RedirectMatch 301 ^/les-conditions-generales-dutilisation/?$                        /mentions-legales/#cgu
+  RedirectMatch 301 ^/les-conditions-generales-de-vente/?$                            /mentions-legales/#cgv
+</IfModule>
+
+# ----------------------------------------------------------------------------
+#  3. Compression
+# ----------------------------------------------------------------------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml \
+    image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml \
+    image/svg+xml application/manifest+json
+</IfModule>
+
+# ----------------------------------------------------------------------------
+#  4. Cache navigateur
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                          "access plus 1 month"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType application/xml           "access plus 1 hour"
+  ExpiresByType text/plain                "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|webp|jpg|jpeg|png|svg|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # ------------------------------------------------------------------------
+  #  5. En-têtes de sécurité
+  # ------------------------------------------------------------------------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  Header unset X-Powered-By
+</IfModule>
+
+# ----------------------------------------------------------------------------
+#  6. Types MIME
+# ----------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType font/woff2                  .woff2
+  AddType image/webp                  .webp
+  AddType application/manifest+json   .webmanifest
+</IfModule>
