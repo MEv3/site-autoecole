@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /src/
-Disallow: /404.html
-
-# Ressources nécessaires au rendu
-Allow: /assets/
-
-Sitemap: https://permikar.fr/sitemap.xml
