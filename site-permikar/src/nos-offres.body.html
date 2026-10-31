@@ -1,0 +1,339 @@
+<!--JSONLD
+[
+  {
+    "@type": "OfferCatalog",
+    "@id": "https://permikar.fr/nos-offres/#catalog",
+    "name": "Forfaits de formation Permikar",
+    "provider": { "@id": "https://permikar.fr/#organization" },
+    "itemListElement": [
+      { "@type": "Offer", "name": "Permis B manuel — forfait 10 heures", "price": "880", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#manuel" },
+      { "@type": "Offer", "name": "Permis B manuel — forfait 20 heures", "price": "1600", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#manuel" },
+      { "@type": "Offer", "name": "Permis B manuel — forfait 25 heures", "price": "1800", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#manuel" },
+      { "@type": "Offer", "name": "Permis B manuel — forfait 30 heures", "price": "1990", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#manuel" },
+      { "@type": "Offer", "name": "Permis B automatique — forfait 10 heures", "price": "880", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#automatique" },
+      { "@type": "Offer", "name": "Permis B automatique — forfait 13 heures", "price": "1100", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#automatique" },
+      { "@type": "Offer", "name": "Permis B automatique — forfait 20 heures", "price": "1700", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#automatique" },
+      { "@type": "Offer", "name": "Permis B automatique — forfait 30 heures", "price": "2190", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#automatique" },
+      { "@type": "Offer", "name": "Annulation de permis — forfait 5 heures", "price": "450", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#annulation" },
+      { "@type": "Offer", "name": "Annulation de permis — forfait 10 heures", "price": "900", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#annulation" },
+      { "@type": "Offer", "name": "Conduite accompagnée — forfait 10 heures", "price": "550", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#aac" },
+      { "@type": "Offer", "name": "Conduite accompagnée — forfait 20 heures", "price": "1100", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#aac" },
+      { "@type": "Offer", "name": "Stage de Code accéléré en 5 jours", "price": "450", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://permikar.fr/nos-offres/#stage-code" }
+    ]
+  }
+]
+-->
+
+<section class="page-head">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li><span aria-current="page">Forfaits &amp; tarifs</span></li>
+      </ol>
+    </nav>
+    <span class="eyebrow">Forfaits</span>
+    <h1>Choisissez votre forfait de conduite</h1>
+    <p class="lead">
+      Treize formules pour le permis B, la conduite accompagnée, l'annulation de permis et le Code de
+      la route. Tous nos prix sont en TTC (toutes taxes comprises). Une évaluation de départ à distance
+      est obligatoire avant de choisir votre forfait.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="/code-en-ligne/">Commander mon évaluation</a>
+      <a class="btn btn--ghost" href="/contact/">Être conseillé</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="forfaits-list-t">
+  <div class="container">
+    <h2 id="forfaits-list-t" class="visually-hidden">Liste des forfaits Permikar</h2>
+
+    <div class="tabs" role="tablist" aria-label="Filtrer les forfaits" data-tabs>
+      <button class="tab" type="button" role="tab" aria-selected="true" data-filter="tous">Tous</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-filter="manuel">Boîte manuelle</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-filter="automatique">Boîte automatique</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-filter="aac">Conduite accompagnée</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-filter="annulation">Annulation</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-filter="code">Code</button>
+    </div>
+
+    <h3 id="manuel" class="visually-hidden">Forfaits permis B boîte manuelle</h3>
+    <div class="grid grid-4">
+
+      <article class="price" data-cat="manuel">
+        <span class="price__badge price__badge--muted">Manuel</span>
+        <h3>Permis B manuel</h3>
+        <span class="price__hours">Forfait 10 heures</span>
+        <div class="price__amount">880 <small>€ TTC</small></div>
+        <p class="price__per">Soit 88 € l'heure de formation</p>
+        <ul>
+          <li>Évaluation de départ</li>
+          <li>10 h de conduite individuelle</li>
+          <li>Livret numérique ENPC</li>
+          <li>Accompagnement à l'examen pratique</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="manuel">
+        <span class="price__badge price__badge--muted">Manuel</span>
+        <h3>Permis B manuel</h3>
+        <span class="price__hours">Forfait 20 heures</span>
+        <div class="price__amount">1 600 <small>€ TTC</small></div>
+        <p class="price__per">Soit 80 € l'heure de formation</p>
+        <ul>
+          <li>Évaluation de départ</li>
+          <li>20 h de conduite individuelle</li>
+          <li>Livret numérique ENPC</li>
+          <li>Accompagnement à l'examen pratique</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price price--featured" data-cat="manuel">
+        <span class="price__badge">Le plus choisi</span>
+        <h3>Permis B manuel</h3>
+        <span class="price__hours">Forfait 25 heures</span>
+        <div class="price__amount">1 800 <small>€ TTC</small></div>
+        <p class="price__per">Soit 72 € l'heure de formation</p>
+        <ul>
+          <li>Apprentissage complet</li>
+          <li>Davantage de pratique au volant</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Préparation optimale à l'examen</li>
+        </ul>
+        <a class="btn btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="manuel">
+        <span class="price__badge price__badge--muted">Manuel</span>
+        <h3>Permis B manuel</h3>
+        <span class="price__hours">Forfait 30 heures</span>
+        <div class="price__amount">1 990 <small>€ TTC</small></div>
+        <p class="price__per">Soit 66 € l'heure de formation</p>
+        <ul>
+          <li>Idéal pour les grands débutants</li>
+          <li>Apprentissage à votre rythme</li>
+          <li>Davantage de pratique avant l'examen</li>
+          <li>Accompagnement personnalisé</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="automatique" id="automatique">
+        <span class="price__badge price__badge--muted">Automatique</span>
+        <h3>Permis B automatique</h3>
+        <span class="price__hours">Forfait 10 heures</span>
+        <div class="price__amount">880 <small>€ TTC</small></div>
+        <p class="price__per">Soit 88 € l'heure de formation</p>
+        <ul>
+          <li>Apprentissage simplifié</li>
+          <li>Progression sereine</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Préparation à l'examen pratique</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="automatique">
+        <span class="price__badge price__badge--gold">Accélérée</span>
+        <h3>Permis B automatique</h3>
+        <span class="price__hours">Forfait 13 heures</span>
+        <div class="price__amount">1 100 <small>€ TTC</small></div>
+        <p class="price__per">Soit 85 € l'heure de formation</p>
+        <ul>
+          <li>Formule accélérée</li>
+          <li>Pour les candidats ayant déjà une base</li>
+          <li>Complément de formation rapide</li>
+          <li>Accompagnement à l'examen</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="automatique">
+        <span class="price__badge price__badge--muted">Automatique</span>
+        <h3>Permis B automatique</h3>
+        <span class="price__hours">Forfait 20 heures</span>
+        <div class="price__amount">1 700 <small>€ TTC</small></div>
+        <p class="price__per">Soit 85 € l'heure de formation</p>
+        <ul>
+          <li>Formule complète</li>
+          <li>Apprentissage facilité</li>
+          <li>Progression rapide</li>
+          <li>Réussite dans les meilleures conditions</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="automatique">
+        <span class="price__badge price__badge--muted">Automatique</span>
+        <h3>Permis B automatique</h3>
+        <span class="price__hours">Forfait 30 heures</span>
+        <div class="price__amount">2 190 <small>€ TTC</small></div>
+        <p class="price__per">Soit 73 € l'heure de formation</p>
+        <ul>
+          <li>Formule la plus complète</li>
+          <li>Plus d'heures de pratique</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Préparation optimale à l'examen</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="aac" id="aac">
+        <span class="price__badge price__badge--muted">Dès 15 ans</span>
+        <h3>Conduite accompagnée</h3>
+        <span class="price__hours">Forfait 10 heures — manuel ou automatique</span>
+        <div class="price__amount">550 <small>€ TTC</small></div>
+        <p class="price__per">Soit 55 € l'heure de formation</p>
+        <ul>
+          <li>Accessible dès 15 ans</li>
+          <li>Formation progressive</li>
+          <li>Moniteur diplômé d'État</li>
+          <li>Préparation au rendez-vous pédagogique</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="aac">
+        <span class="price__badge price__badge--muted">Dès 15 ans</span>
+        <h3>Conduite accompagnée</h3>
+        <span class="price__hours">Forfait 20 heures — manuel ou automatique</span>
+        <div class="price__amount">1 100 <small>€ TTC</small></div>
+        <p class="price__per">Soit 55 € l'heure de formation</p>
+        <ul>
+          <li>Accessible dès 15 ans</li>
+          <li>Formation progressive complète</li>
+          <li>Moniteur diplômé d'État</li>
+          <li>Préparation au rendez-vous pédagogique</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="annulation" id="annulation">
+        <span class="price__badge price__badge--muted">Annulation</span>
+        <h3>Annulation de permis</h3>
+        <span class="price__hours">Forfait 5 heures — manuel ou automatique</span>
+        <div class="price__amount">450 <small>€ TTC</small></div>
+        <p class="price__per">Soit 90 € l'heure de formation</p>
+        <ul>
+          <li>Reprise de la conduite</li>
+          <li>Retravail des acquis</li>
+          <li>Accompagnement adapté à votre niveau</li>
+          <li>Préparation au retour sur la route</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="annulation">
+        <span class="price__badge price__badge--muted">Annulation</span>
+        <h3>Annulation de permis</h3>
+        <span class="price__hours">Forfait 10 heures — manuel ou automatique</span>
+        <div class="price__amount">900 <small>€ TTC</small></div>
+        <p class="price__per">Soit 90 € l'heure de formation</p>
+        <ul>
+          <li>Formation pratique adaptée</li>
+          <li>Retrouver confiance au volant</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Préparation au retour sur la route</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="/contact/">Commander</a>
+      </article>
+
+      <article class="price" data-cat="code" id="stage-code">
+        <span class="price__badge price__badge--gold">Code</span>
+        <h3>Stage de Code accéléré</h3>
+        <span class="price__hours">5 jours — du 19 au 23 décembre 2026</span>
+        <div class="price__amount">450 <small>€ TTC</small></div>
+        <p class="price__per">Session intensive à Paris</p>
+        <ul>
+          <li>5 jours de préparation intensive</li>
+          <li>Encadrement par nos formateurs</li>
+          <li>Préparation à l'épreuve théorique</li>
+          <li>Tarif exceptionnel</li>
+        </ul>
+        <a class="btn btn--block" href="/contact/">Commander</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Tarifs unitaires -->
+<section class="section section--alt" aria-labelledby="unitaires-t">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">À la carte</span>
+      <h2 id="unitaires-t">Nos tarifs unitaires</h2>
+      <p class="lead">Prestations disponibles à l'unité, en complément ou en dehors d'un forfait. Tous les montants sont en euros TTC.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="table-wrap reveal">
+        <table class="rates">
+          <caption>Code de la route</caption>
+          <thead><tr><th scope="col">Prestation</th><th scope="col">Tarif TTC</th></tr></thead>
+          <tbody>
+            <tr><td>Accès code en ligne</td><td>19,99 €</td></tr>
+            <tr><td>Livre de code</td><td>30,00 €</td></tr>
+            <tr><td>Formation salle code + livre</td><td>550,00 €</td></tr>
+            <tr><td>Évaluation en ligne</td><td>49,99 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="rates">
+          <caption>Conduite</caption>
+          <thead><tr><th scope="col">Prestation</th><th scope="col">Tarif TTC</th></tr></thead>
+          <tbody>
+            <tr><td>Heure de conduite manuelle</td><td>80,00 €</td></tr>
+            <tr><td>Heure de conduite automatique</td><td>80,00 €</td></tr>
+            <tr><td>Heure d'évaluation (manuelle ou automatique)</td><td>80,00 €</td></tr>
+            <tr><td>Frais d'accompagnement BVM</td><td>80,00 €</td></tr>
+            <tr><td>Frais d'accompagnement BVA</td><td>80,00 €</td></tr>
+            <tr><td>Rendez-vous pédagogiques conduite AAC</td><td>250,00 €</td></tr>
+            <tr><td>ENPC — livret numérique et fiche de suivi</td><td>15,00 €</td></tr>
+            <tr><td>Frais de dossier</td><td><span class="badge-free">Gratuit</span></td></tr>
+            <tr><td>Frais de transfert</td><td><span class="badge-free">Gratuit</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note mt-3 reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 8v5M12 16.5h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      <p><strong>Évaluation de départ obligatoire.</strong> Elle est à réaliser à distance avec Eval'Click Auto avant de choisir votre forfait, afin d'estimer le volume d'heures réellement nécessaire. <a href="/code-en-ligne/">Commander l'évaluation</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Financement -->
+<section class="section" aria-labelledby="fin-t">
+  <div class="container">
+    <div class="section-head is-center reveal">
+      <span class="eyebrow">Financement</span>
+      <h2 id="fin-t">Des aides pour alléger le coût de votre permis</h2>
+      <p class="lead">En tant que partenaire de la Région Île-de-France, Permikar accepte les chèques région permis, qui réduisent considérablement le coût de votre formation.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <h3>Chèque région Île-de-France</h3>
+        <p>Une aide directe déduite du montant de votre formation, sans compromis sur la qualité de l'accompagnement.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Paiement en plusieurs fois</h3>
+        <p>Étalez le règlement de votre forfait grâce à nos solutions de paiement partenaires.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Frais de dossier et transfert offerts</h3>
+        <p>Aucun frais de dossier, et le transfert depuis une autre auto-école est gratuit.</p>
+      </article>
+    </div>
+    <div class="center mt-3">
+      <a class="btn" href="/contact/">Parler à un conseiller</a>
+    </div>
+  </div>
+</section>
